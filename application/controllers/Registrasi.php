@@ -7,11 +7,10 @@ class Registrasi extends CI_Controller {
                 parent::__construct();
                 $this->load->model('model_registrasi');
                 if($this->session->userdata('id')){
+			// header("location: $base_url");
                         header("location: http://localhost:8000/pos");
                 }
         }
-	
-	
 	
 	public function index(){
                 $this->load->library('form_validation');
@@ -76,7 +75,6 @@ class Registrasi extends CI_Controller {
                 }
         }
         
-        
         public function daftar_baru($data)
         {
 		return $daftar = $this->model_registrasi->daftar_baru($data);
@@ -87,13 +85,8 @@ class Registrasi extends CI_Controller {
 			return $this->model_registrasi->simpan_token($data_token);
 		}
 		
-		
-		
         public function send_email($email, $token)
-        //public function send_email()
         {
-            //$email='dngrifai21@gmail.com';
-            //$token='fgjkkllajahbb';
             $config = [
             		'protocol' 	=> 'smtp',
             		'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -109,13 +102,11 @@ class Registrasi extends CI_Controller {
             
             $this->email->initialize($config);
             
-            $this->email->from('srayakarina@gmail.com' , 'dakon');
+            $this->email->from('srayakarina@gmail.com' , 'Toko MI');
             $this->email->to($email);
-            $this->email->subject('aktivasi akun');
-            $this->email->message('silahkan klik link untuk aktifasi akun<a href=" '.site_url().'registrasi/aktifasi?email='.$email.'&token='.$token.' "> '.site_url().'registrasi/aktifasi?email='.$email.'&token='.$token.' </a> <br>link akan kadaluarsa dalam waktu 24 jam');
+            $this->email->subject('Aktivasi Akun');
+            $this->email->message('Silahkan klik link untuk aktifasi akun<a href=" '.site_url().'registrasi/aktifasi?email='.$email.'&token='.$token.' "> '.site_url().'registrasi/aktifasi?email='.$email.'&token='.$token.' </a> <br>Link akan kadaluarsa dalam waktu 24 jam');
             if( $this->email->send() ){
-                //echo 'sukses';
-                //die;
                 return true;
                 }else{
                     echo $this->email->print_debugger();

@@ -68,6 +68,7 @@ class Auth extends CI_Controller {
 				];
 				$this->_input_cookie($data_input_cookie, $data_update_cookie, $data_session, $cookie_id);
 				$this->_cookie_session($data_session,$cookie);
+				// header("location: $base_url");
 				header("location: http://localhost:8000/pos");
 			}
 		}

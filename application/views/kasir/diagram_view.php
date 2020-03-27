@@ -266,7 +266,7 @@
         var bulan = $("#bulan").val();
         var tahun = $("#tahun").val();
         $.ajax({
-            url:'http://localhost:8000/pos/option/cari_diagram',
+            url:"<?php echo base_url() ?>option/cari_diagram",
             data:{bulan:bulan, tahun:tahun},
             method: "POST",
               success:function(data)
@@ -285,7 +285,7 @@
       $(function(){
         //cek_bulan();
           $.ajax({
-              url:"http://localhost:8000/pos/option/diagram",
+              url:"<?php echo base_url() ?>option/diagram",
               method: "GET",
               success:function(data)
               {

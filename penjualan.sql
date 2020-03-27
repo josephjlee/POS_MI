@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Mar 2020 pada 08.25
+-- Waktu pembuatan: 27 Mar 2020 pada 11.34
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
 
@@ -50,11 +50,11 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga_beli`, `harga_jual`, `laba`, `satuan`, `setok`, `mulai_promo`, `ahir_promo`, `jenis_promo`, `potongan`, `harga_ahir`, `setatus_promo`, `setatus_barang`) VALUES
-(1, 'Air Mineral 600ML', 2000, 2500, 500, 'pcs', 90, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
+(1, 'Air Mineral 600ML', 2000, 2500, 500, 'pcs', 87, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
 (2, 'Gula', 5000, 7000, 2000, 'kg', 91, '2019-06-12', '2019-06-21', 'minimal', 10, 60000, 1, 1),
 (4, 'Shampoo Panteen', 3000, 4000, 1000, 'botol', 91, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
 (5, 'Oreo', 1500, 2500, 1000, 'pcs', 100, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
-(6, 'Cimol Goreng', 2000, 3000, 1000, 'pcs', 90, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
+(6, 'Cimol Goreng', 2000, 3000, 1000, 'pcs', 88, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
 (7, 'Nasi Kuning', 7000, 10000, 3000, 'pcs', 98, '2020-03-17', '2020-03-27', 'minimal', 10, 90000, 1, 1),
 (8, 'Indomie Goreng', 2000, 3000, 1000, 'pcs', 100, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
 (9, 'Jagung Enak', 5000, 6000, 1000, 'kg', 86, '0000-00-00', '0000-00-00', 'diskon', 0, 0, 0, 1),
@@ -79,7 +79,8 @@ CREATE TABLE `cookie` (
 INSERT INTO `cookie` (`id_cookie`, `id_user_cookie`, `cookie`) VALUES
 (1, 1, 't2dadynnaa2wagjc1hs9sm9ry8qs5fw9'),
 (2, 4, '9ry6s4ztyo3hbt010r1bnciunznkwpoc6o8i1qc7zo984vu1w5voii6kzmn3ihqixl14yw8ly0cfoggfwwiia3i9eq3l1z3z16kecs6o0m3ylx7qrfkfn8qagqsc167u'),
-(3, 7, 'rm3inryl9dxjwsql8336uj91kwkzaphg3runxj3tnt6j0a1wg9wd7y6r1watvf7s2jpis7w2rlwhfr9diqiwcmqaopo1bw46n7p2py8eyi2iqfpsqy95l01r5sn90rzzzddufs4kvjry1kquxtw4m9katip2yr0539spd5m8s34y8oyis5vxghwp90jdj7rqdawrwke6l6tu0hsbvh3o29j4m11aazsa');
+(3, 7, 'pgw4mmdvshqolkh2vjy70zbnl011fwmim8876x6gmcnk87l2zsab943yylrz4owq6aacq9wbwgn5euoyar5h5adlcfz2h5yc0xvyw1z0ve4jdx739cdgf97foa670xp5rm0gyswc8x2ag00bfr77vtsjso8557nfrwme48ob0yj4kebbawv6aqttha2vd9bv9g06xshw7whpmkybudo7gninpv0h9osx'),
+(4, 8, 'gsvxfpbd11mwdocc3drdysp0brld65c8ukxtpkcb6eqwz2dwdb45bd5g7kfbqqnjin2y3pw3okd0r1vbuuzv1lk4seqsu2g00plizfbx2a8z0183khr41svxyrphyenrv0bjzk1y6tqsfmxfnaz82qy6yxh5x8uj0onu44o9ek110hn7i1hlbm8cx4db855euwomw44julruuxemeoje7a8nan7jwg3tm4n38fyvd14pqy0mush2q8dwtktgsy4');
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,20 @@ INSERT INTO `login` (`id_login`, `id_user`, `browser`, `browser_version`, `os`, 
 (62, 4, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 12:31:55'),
 (63, 4, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 12:44:10'),
 (64, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 01:35:57'),
-(65, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 02:11:32');
+(65, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 02:11:32'),
+(66, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 07:43:26'),
+(67, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 07:52:33'),
+(68, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 08:16:56'),
+(69, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 08:17:46'),
+(70, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 09:17:13'),
+(71, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 09:22:23'),
+(72, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 10:10:58'),
+(73, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 10:36:59'),
+(74, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 10:49:48'),
+(75, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 10:52:04'),
+(76, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 12:31:50'),
+(77, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 12:34:00'),
+(78, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 01:48:20');
 
 -- --------------------------------------------------------
 
@@ -141,7 +155,9 @@ INSERT INTO `penjualan` (`id_penjualan`, `kasir`, `kode_brg`, `nama_brg`, `harga
 (28, 0, 2, 'Gula', 7000, 1, 7000, '2020-03-26', '11:43:00'),
 (29, 0, 10, 'Pop Mie Kuah', 5500, 2, 11000, '2020-03-26', '11:48:00'),
 (30, 0, 10, 'Pop Mie Kuah', 5500, 1, 5500, '2020-03-26', '11:50:00'),
-(31, 0, 10, 'Pop Mie Kuah', 5500, 3, 16500, '2020-03-26', '11:52:00');
+(31, 0, 10, 'Pop Mie Kuah', 5500, 3, 16500, '2020-03-26', '11:52:00'),
+(32, 0, 6, 'Cimol Goreng', 3000, 2, 6000, '2020-03-27', '09:55:00'),
+(33, 0, 1, 'Air Mineral 600ML', 2500, 3, 7500, '2020-03-27', '11:02:00');
 
 -- --------------------------------------------------------
 
@@ -162,7 +178,9 @@ CREATE TABLE `token` (
 
 INSERT INTO `token` (`id_token`, `email`, `token`, `waktu`) VALUES
 (9, 'karinasoraya.ks@gmail.com', 'qtFOdrI1lnqy7RzbcwtAYgtrE7Oxyjixmj9vVE9JhqE%3D', 1585193832),
-(10, 'soraya.17051@mhs.its.ac.id', '7U1lTeYqEDCTXo3mreYzPzLHT%2BEKa3rjwCcdLGNZy98%3D', 1585207898);
+(10, 'soraya.17051@mhs.its.ac.id', '7U1lTeYqEDCTXo3mreYzPzLHT%2BEKa3rjwCcdLGNZy98%3D', 1585207898),
+(11, 'karinasoraya.ks@gmail.com', '3YP3LdNYAbAb3O5Ax5Gqm0ym3%2B0BxKwXCfQQ1%2BfSNoU%3D', 1585291050),
+(12, 'srayakarina@gmail.com', 'ekSdYX7wg9yMGlqlRPaWiLbUowHrBJkVYr0aY8I7tO0%3D', 1585291574);
 
 -- --------------------------------------------------------
 
@@ -208,8 +226,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `email`, `password`, `jenis_kelamin`, `telephone`, `foto`, `aktif`, `level`) VALUES
-(8, 'soraya', 'soraya.17051@mhs.its.ac.id', '$2y$10$T4sHRVJAO4mW3XNoGbibDeVtPODjVHMq0piUuJ5AmtsYtUBD5hEdy', '', '', '', 1, 1),
-(7, 'karinasraya', 'karinasoraya.ks@gmail.com', '$2y$10$y0lZCaJQRZEdTE4GQdRcLOQma0W42p20OPkMwrBbZjd3imvetHd1e', '', '', '', 1, 0);
+(7, 'karinasraya', 'karinasoraya.ks@gmail.com', '$2y$10$y0lZCaJQRZEdTE4GQdRcLOQma0W42p20OPkMwrBbZjd3imvetHd1e', '', '', '', 1, 0),
+(8, 'soraya', 'soraya.17051@mhs.its.ac.id', '$2y$10$T4sHRVJAO4mW3XNoGbibDeVtPODjVHMq0piUuJ5AmtsYtUBD5hEdy', '', '', '', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -271,25 +289,25 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT untuk tabel `cookie`
 --
 ALTER TABLE `cookie`
-  MODIFY `id_cookie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cookie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `token`
 --
 ALTER TABLE `token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `toko`
@@ -301,7 +319,7 @@ ALTER TABLE `toko`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

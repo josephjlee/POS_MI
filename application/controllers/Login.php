@@ -8,6 +8,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->model('model_login');
 		if($this->session->userdata('id')){
+			// header("location: $base_url");
 			header("location: http://localhost:8000/pos");
 			}
 	}
@@ -83,6 +84,7 @@ class Login extends CI_Controller {
 						];
 						$this->_input_cookie($data_input_cookie, $data_update_cookie, $data_session, $cookie_id);
 						$this->_cookie_session($data_session,$cookie);
+						// header("location: $base_url");
 						header("location: http://localhost:8000/pos");
 					}
 					

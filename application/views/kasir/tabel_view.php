@@ -247,7 +247,7 @@
               "order": [],
               "serverSide": true, 
               "ajax": {
-                  "url": "http://localhost:8000/pos/option/get_data_laba",
+                  "url": "<?php echo base_url() ?>option/get_data_laba",
                   "type": "POST"
                   },
               "lengthChange": false,

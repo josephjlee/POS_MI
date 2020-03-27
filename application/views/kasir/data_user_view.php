@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="utf-8">
@@ -250,7 +249,7 @@
             "order": [],
             "serverSide": true, 
             "ajax": {
-                "url": "http://localhost:8000/pos/option/get_data_user",
+                "url": "<?php echo base_url() ?>option/get_data_user",
                 "type": "POST"
                 },
             "lengthChange": false,
@@ -264,12 +263,67 @@
     {
         table.ajax.reload(null,false);
     }
+
+    function simpan_ubah_member(id)
+		{
+      var email = $('#ubah_member_email_'+id).val();
+      var password = $('#ubah_member_password_'+id).val();
+      $.ajax({
+				url : "<?php echo base_url() ?>option/update_data_user",
+        method:"POST",
+        data:{
+          id: id,
+          email: email,
+          password: password 
+        },
+        success:function(response) {
+          alert('berhasil mengubah data')
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
+    }
+
     
     function edit_user(id)
     {
-        alert(id);
+      $('#editUserModal'+id).modal({show:true});
     }
+  </script>
+  <script>
+
   </script>
 </body>
 
+<?php foreach ($member as $member):?>
+<div class="modal fade" id="editUserModal<?php echo $member->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <input type="hidden" value="<?php echo $member->id?>" name="ubah_member_id_<?php echo $member->id?>">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="ubah_member_email_<?php echo $member->id?>" name="email" value="<?php echo $member->email?>">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="ubah_member_password_<?php echo $member->id?>" name="password" placeholder="Dikosongkan apabila tidak mau diubah">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="simpan_ubah_member(<?php echo $member->id?>)">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach;?>
 </html>

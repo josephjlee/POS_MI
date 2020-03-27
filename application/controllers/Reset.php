@@ -67,10 +67,10 @@ class Reset extends CI_Controller {
             ];
         $this->load->library('email');
         $this->email->initialize($config);
-        $this->email->from('srayakarina@gmail.com' , 'dakon');
+        $this->email->from('srayakarina@gmail.com' , 'Toko MI');
         $this->email->to($email);
         $this->email->subject('reset akun');
-        $this->email->message('kami diminta untu mereset password anda<br>jika benar silahkan klik link ini <a href=" '.site_url().'reset/reset_password?email='.$email.'&token='.$token.' "> '.site_url().'reset/reset_password?email='.$email.'&token='.$token.' </a> <p> jika anda tidak merasa meminta reset password silahkan abaikan email ini</p>');
+        $this->email->message('Kami menerima permintaan untuk mereset password anda<br>Jika benar silahkan klik link ini <a href=" '.site_url().'reset/reset_password?email='.$email.'&token='.$token.' "> '.site_url().'reset/reset_password?email='.$email.'&token='.$token.' </a> <p> Jika anda tidak merasa meminta reset password silahkan abaikan email ini</p>');
         if( $this->email->send() )
         {
             return true;

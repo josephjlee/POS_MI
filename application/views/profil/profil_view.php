@@ -261,6 +261,28 @@
         });
           
       }
+
+      function simpan()
+      {
+          $.ajax({
+              url : url,
+              type: "POST",
+              data: $('#form').serialize(),
+              dataType: "JSON",
+              success: function(data)
+              {
+                $('[name="nama"]').html(data.nama);
+                $('[name="email"]').html(data.email);
+                $('[name="telephon"]').html(data.telephone);
+                $('[name="jenis kelamin"]').html(data.jenis_kelamin);
+                $('#modalProfil').modal('hide');
+              },
+              error: function (jqXHR, textStatus, errorThrown)
+              {
+                  alert('eror');
+              }
+              });
+      }
   </script>
 
   <!-- Modal -->

@@ -187,12 +187,6 @@
 				</thead>
 				<tbody>
         </tbody>
-        <tfoot>
-          <tr>
-            <th colspan="5" style="text-align:right">Total:</th>
-            <th></th>
-          </tr>
-        </tfoot>
 			</table>
         </div>
         <!-- /.container-fluid -->
@@ -240,7 +234,7 @@
               "order": [],
               "serverSide": true, 
               "ajax": {
-                  "url": "http://localhost:8000/pos/option/get_penjualan",
+                  "url": "<?php echo base_url() ?>option/get_penjualan",
                   "type": "POST"
                   },
               "lengthChange": false,

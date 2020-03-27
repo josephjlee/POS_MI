@@ -219,7 +219,7 @@
                             <div class="form-group row">
                               <label class="col-md-3 col-form-label">Jumlah</label>
                                 <div class="col-md-9">
-                                  <input class="form-control reset" type="number" readonly="readonly" onkeyup="subTotal(this.value)" id="qty" min="0" name="qty" placeholder="qty">
+                                  <input class="form-control reset" type="number" readonly="readonly" onkeyup="subTotal(this.value)" id="qty" min="0" name="qty" placeholder="jumlah">
                                 </div>
                             </div>
                             
@@ -318,7 +318,7 @@
               "info": false,
               "searching": false,
               "ajax": {
-                  "url": "http://localhost:8000/pos/option/list_transaksi",
+                  "url": "<?php echo base_url() ?>option/list_transaksi",
                   "type": "POST"
                   },
               "columnDefs": [
@@ -359,7 +359,7 @@
           var id = $('#id').val();
           var qty = $('#qty').val();
           $.ajax({
-              url : "http://localhost:8000/pos/option/add_keranjang",
+              url : "<?php echo base_url() ?>option/add_keranjang",
               type: "POST",
               data: $('#form_transaksi').serialize(),
               dataType: "JSON",
@@ -447,7 +447,7 @@
                 source: function(request, response) { 
 
                     jQuery.ajax({
-                        url:      "http://localhost:8000/pos/option/cari_barang",
+                        url: "<?php echo base_url() ?>option/cari_barang",
                         data: {
                           keyword : request.term
                         },
@@ -482,7 +482,7 @@
             var bayar=$('#bayar').val();
             var kembali=$('#kembali').val();
             $.ajax({
-                url:"http://localhost:8000/pos/option/cetak_nota/",
+                url:"<?php echo base_url() ?>option/cetak_nota/",
                 data:{bayar:bayar,kembali:kembali},
                 method:"POST",
                 success:function(data){
@@ -497,7 +497,7 @@
           var bayar=$('#bayar').val();
             var kembali=$('#kembali').val();
             $.ajax({
-                url:"http://localhost:8000/pos/option/cetak_nota/",
+                url:"<?php echo base_url() ?>option/cetak_nota/",
                 data:{bayar:bayar,kembali:kembali},
                 method:"POST",
                 success:function(data){
@@ -515,7 +515,7 @@
 		function cetak_struk()
 		{
 			$.ajax({
-				url : "http://localhost:8000/pos/option/shoping/",
+				url : "<?php echo base_url() ?>option/shoping/",
 				type: "post",
 				dataType:"json",
 				success:function(result){

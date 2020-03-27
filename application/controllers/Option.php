@@ -6,6 +6,7 @@ class Option extends CI_Controller {
 		parent::__construct();
 		$this->load->model('model_barang');
 		if(!$this->session->userdata('id')){
+			// header("location: $base_url");
 			header('location:http://localhost:8000/pos');
 		}
 	}
@@ -202,13 +203,12 @@ class Option extends CI_Controller {
 			}else{
 				$row[] = "dis";
 			}
-			//$row[] = $items["jenis"];
+
 			$row[] = $items["potongan"];
 			$row[] = $items["harga_potongan"];
 			$row[] = 'Rp. ' . number_format( $items['price'], 0 , '' , '.' ) . ',-';
 			$row[] = $items["qty"];
-			//$row[] = 'Rp. ' . number_format( $items['subtotal'], 0 , '' , '.' ) . ',-';
-			//$row[] = 'Rp. ' . number_format( $items['qty'] * $items['price'], 0 , '' , '.' ) . ',-';
+
 			if($items["jenis"] == 'minimal'){
 				$induk = floor($items["qty"] / $items["potongan"]);
 				$sisa = $items["qty"] % $items["potongan"];
@@ -218,7 +218,7 @@ class Option extends CI_Controller {
 				$diskon = $items['qty'] * ($items['price'] - ($items['price'] * $items['potongan']/100));
 				$row[] = 'Rp. ' . number_format( $diskon, 0 , '' , '.' ) . ',-';
 			}
-			//add html for action
+
 			$row[] = '<a 
 				href="javascript:void()" style="color:rgb(255,128,128);
 				text-decoration:none" onclick="deletebarang('
@@ -230,7 +230,6 @@ class Option extends CI_Controller {
 		$output = [
 			"data" => $data,
 		];
-		//$this->auto_update();
 		echo json_encode($output);
 	}
 	
@@ -288,7 +287,7 @@ class Option extends CI_Controller {
 						</tr>
 					</tbody>
 					</table>
-            <div style="text-align:center">terimakasih atas kunjungan anda</div>';
+            <div style="text-align:center">Terima Kasih Atas Kunjungan Anda</div>';
         echo $output;
 	}
 	
@@ -319,7 +318,7 @@ class Option extends CI_Controller {
 				$sisa =  $hasil->setok;
 				$qty = $sisa-$q;
 				$aksi = $this->model_barang->update_setok($id,$qty);
-				$this->cart->destroy();
+				$this->cart->destroy();	
 				echo json_encode(["status" => TRUE]);
 			}else{
 				echo json_encode(["status" => FALSE]);
@@ -498,12 +497,13 @@ class Option extends CI_Controller {
 		$this->load->helper('cookie');
 		delete_cookie('id');
 		$this->session->sess_destroy();
+		// header("location: $base_url");
 		header('location:http://localhost:8000/pos');
 	}
 
-	public function pengunjung(){
-		$this->load->view('admin/pengunjung_view');
-	}
+	// public function pengunjung(){
+	// 	$this->load->view('admin/pengunjung_view');
+	// }
 
 	public function akun(){
 		$this->load->model('model_member');
@@ -520,7 +520,31 @@ class Option extends CI_Controller {
 	}
 
 	public function data_user(){
-		$this->load->view('kasir/data_user_view');
+		$this->load->model('model_member');
+		$data['member'] = $this->model_member->get_profil();
+		$this->load->view('kasir/data_user_view', $data);
+	}
+
+	public function update_data_user(){
+		if($this->input->post('password') != null){
+			// var_dump('password tidak kosong');
+			$id = $this->input->post('id');
+			$email = $this->input->post('email');
+			$passwordInput = $this->input->post('password');
+			$password = password_hash($passwordInput, PASSWORD_BCRYPT);
+
+			$this->load->model('model_member');
+			$this->model_member->update_member($id, $email, $password);
+		}
+		else{
+			// var_dump('password kosong');
+			$id = $this->input->post('id');
+			$email = $this->input->post('email');
+	
+			$this->load->model('model_member');
+			$this->model_member->update_member_email_only($id, $email);
+		}
+		
 	}
 
 	public function get_data_user(){
