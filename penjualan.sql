@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2020 pada 11.34
+-- Waktu pembuatan: 27 Mar 2020 pada 20.28
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
 
@@ -79,8 +79,8 @@ CREATE TABLE `cookie` (
 INSERT INTO `cookie` (`id_cookie`, `id_user_cookie`, `cookie`) VALUES
 (1, 1, 't2dadynnaa2wagjc1hs9sm9ry8qs5fw9'),
 (2, 4, '9ry6s4ztyo3hbt010r1bnciunznkwpoc6o8i1qc7zo984vu1w5voii6kzmn3ihqixl14yw8ly0cfoggfwwiia3i9eq3l1z3z16kecs6o0m3ylx7qrfkfn8qagqsc167u'),
-(3, 7, 'pgw4mmdvshqolkh2vjy70zbnl011fwmim8876x6gmcnk87l2zsab943yylrz4owq6aacq9wbwgn5euoyar5h5adlcfz2h5yc0xvyw1z0ve4jdx739cdgf97foa670xp5rm0gyswc8x2ag00bfr77vtsjso8557nfrwme48ob0yj4kebbawv6aqttha2vd9bv9g06xshw7whpmkybudo7gninpv0h9osx'),
-(4, 8, 'gsvxfpbd11mwdocc3drdysp0brld65c8ukxtpkcb6eqwz2dwdb45bd5g7kfbqqnjin2y3pw3okd0r1vbuuzv1lk4seqsu2g00plizfbx2a8z0183khr41svxyrphyenrv0bjzk1y6tqsfmxfnaz82qy6yxh5x8uj0onu44o9ek110hn7i1hlbm8cx4db855euwomw44julruuxemeoje7a8nan7jwg3tm4n38fyvd14pqy0mush2q8dwtktgsy4');
+(3, 7, 'raxgthi0wvx5hmdappw7s4tkmlutkkh7aup5iijhys0503q5fgpaxifdxmt7rcyptv93n2a3f5prhbqwb97n7bvw27glc2xlmaxvw2ndu2lf8sx6tnu0b6kbefx156saij8x7blmxa71vbv9fkzj0z6yg6krt6gk8ivhtpxhaguz2n0jiomp5pr12e3z5552k17cp9mrpduxv9er3me3u6eox87haby2'),
+(4, 8, 'bh66bj9myjws7hf2ttbtdxy3mkftnxtj83vnhigtdinhhsfnebeo9rmddph7igloh1t3byio7tlvur0gvd5ugr44knl4e5c10f7mwif0eydhf7yknj3173evlg2nqsdmmeg60v4eal2o93ef3xchxs0x7exdmql7h35v0ngy2kx1nwcoxx8qzrgiyrkf0smij6871qw59ke9m6v3le4x3ohcaesv45w33c4b9rqzv2mqyu4vqp7zlkgt864nkam');
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,12 @@ INSERT INTO `login` (`id_login`, `id_user`, `browser`, `browser_version`, `os`, 
 (75, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 10:52:04'),
 (76, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 12:31:50'),
 (77, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 12:34:00'),
-(78, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 01:48:20');
+(78, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 01:48:20'),
+(79, 7, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 08:22:34'),
+(80, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 08:22:50'),
+(81, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 08:41:09'),
+(82, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 08:44:17'),
+(83, 8, 'Chrome', '80.0.3987.149', 'Windows 10', '::1', 0, '2020-03-03 01:59:29');
 
 -- --------------------------------------------------------
 
@@ -227,7 +232,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nama`, `email`, `password`, `jenis_kelamin`, `telephone`, `foto`, `aktif`, `level`) VALUES
 (7, 'karinasraya', 'karinasoraya.ks@gmail.com', '$2y$10$y0lZCaJQRZEdTE4GQdRcLOQma0W42p20OPkMwrBbZjd3imvetHd1e', '', '', '', 1, 0),
-(8, 'soraya', 'soraya.17051@mhs.its.ac.id', '$2y$10$T4sHRVJAO4mW3XNoGbibDeVtPODjVHMq0piUuJ5AmtsYtUBD5hEdy', '', '', '', 1, 1);
+(8, 'soraya', 'soraya.17051@mhs.its.ac.id', '$2y$10$T4sHRVJAO4mW3XNoGbibDeVtPODjVHMq0piUuJ5AmtsYtUBD5hEdy', 'wanita', '0895411218946', '', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -295,7 +300,7 @@ ALTER TABLE `cookie`
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT untuk tabel `penjualan`
@@ -319,7 +324,7 @@ ALTER TABLE `toko`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

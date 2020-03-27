@@ -171,10 +171,9 @@
             
             <div class="row h3">
                 <div class="col-8">
-                    
+                    <a href="javascript:void(0)" onClick="edit_toko()"><i class="far fa-2x fa-edit"></i></a>
                 </div>
                 <div class="col-4">
-                    <a href="javascript:void(0)" onClick="edit_toko()"><i class="far fa-2x fa-edit"></i></a>
                 </div>
                 
                 <div class="col-5">

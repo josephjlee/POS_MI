@@ -6,8 +6,7 @@ class Option extends CI_Controller {
 		parent::__construct();
 		$this->load->model('model_barang');
 		if(!$this->session->userdata('id')){
-			// header("location: $base_url");
-			header('location:http://localhost:8000/pos');
+			header("location:".base_url());
 		}
 	}
 	
@@ -497,13 +496,8 @@ class Option extends CI_Controller {
 		$this->load->helper('cookie');
 		delete_cookie('id');
 		$this->session->sess_destroy();
-		// header("location: $base_url");
-		header('location:http://localhost:8000/pos');
+		header("location:".base_url());
 	}
-
-	// public function pengunjung(){
-	// 	$this->load->view('admin/pengunjung_view');
-	// }
 
 	public function akun(){
 		$this->load->model('model_member');
@@ -519,15 +513,28 @@ class Option extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function edit_profil_submit()
+	{
+		$id = $this->session->userdata('id');
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$jenis_kelamin = $this->input->post('jenis_kelamin');
+		$telephone = $this->input->post('telephone');
+
+		$this->load->model('model_member');
+		$this->model_member->ubah_profil($id, $nama, $email, $jenis_kelamin, $telephone);
+
+		return $this->akun();
+	}
+
 	public function data_user(){
 		$this->load->model('model_member');
-		$data['member'] = $this->model_member->get_profil();
+		$data['member'] = $this->model_member->getAllMember();
 		$this->load->view('kasir/data_user_view', $data);
 	}
 
 	public function update_data_user(){
 		if($this->input->post('password') != null){
-			// var_dump('password tidak kosong');
 			$id = $this->input->post('id');
 			$email = $this->input->post('email');
 			$passwordInput = $this->input->post('password');
@@ -537,7 +544,6 @@ class Option extends CI_Controller {
 			$this->model_member->update_member($id, $email, $password);
 		}
 		else{
-			// var_dump('password kosong');
 			$id = $this->input->post('id');
 			$email = $this->input->post('email');
 	

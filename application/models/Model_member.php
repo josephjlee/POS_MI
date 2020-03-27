@@ -69,6 +69,31 @@ class Model_member extends CI_Model {
         return $this->db->get('user')->row_array();
     }
 
+    public function update_member($id, $email, $password)
+    {
+        $data = array(
+            'email' => $email,
+            'password' => $password
+        );
+        $this->db->where('id',$id);
+        return $this->db->update('user',$data);
+    }
+
+    public function update_member_email_only($id, $email)
+    {
+        $data = array(
+            'email' => $email
+        );
+        $this->db->where('id',$id);
+        return $this->db->update('user',$data);
+    }
+
+    public function getAllMember()
+    {
+        $query = $this->db->get('user');
+        return $query->result();
+    }
+
 	public function validasi_cookie($user_cookie)
     {
         $this->db->where('cookie',$user_cookie);
@@ -88,8 +113,7 @@ class Model_member extends CI_Model {
     public function cek_cookie_db($id)
     {
         $this->db->where('id_user_cookie',$id);
-        return $this->db->get('cookie')->row();
-        
+        return $this->db->get('cookie')->row();   
     }
 
     public function update_cookie($data_update_cookie,$cookie_id)
@@ -136,6 +160,19 @@ class Model_member extends CI_Model {
     {
         $this->db->where('id',$this->session->userdata('id'));
         return $this->db->get('user')->row_array();
+    }
+
+    public function ubah_profil($id, $nama, $email, $jenis_kelamin, $telephone)
+    {
+        $data = array(
+            'email' => $email,
+            'nama' => $nama,
+            'jenis_kelamin' => $jenis_kelamin,
+            'telephone' => $telephone
+        );
+
+        $this->db->where('id',$id);
+        return $this->db->update('user',$data);
     }
 
     

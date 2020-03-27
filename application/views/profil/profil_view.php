@@ -177,7 +177,9 @@
                   <img class="img-profile rounded-circle" width=100 height=100 src="<?= site_url() ?>assets/images/profil.png">
                 </div>
                 <div class="col-7 p-2">
-                  <a href="javascript:void(0)" onClick="edit_profil()"><i class="far fa-2x fa-edit"></i></a>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalProfil">
+                    Ubah Profil
+                  </button>
                 </div>
                 
                 <div class="col-5 p-2 font-weight-bold text-dark">
@@ -238,52 +240,6 @@
   <script src="<?= base_url() ?>assets/jquery/jquery-3.2.1.min.js"></script>
   <script src="<?= base_url() ?>assets/bootstrap-4.1.3/js/bootstrap.min.js"></script>
   <script src="<?= base_url() ?>assets/js/sb-admin-2.js"></script>
-  <script>
-    function edit_profil()
-      {
-        $.ajax({
-          url : "<?= site_url('option/edit_profil') ?>",
-          type: "GET",
-          dataType: "JSON",
-          success: function(data)
-          {
-            $('[name="nama"]').val(data.nama);
-            $('[name="email"]').val(data.email);
-            $('[name="telephon"]').val(data.telephone);
-            $('[name="jenis kelamin"]').val(data.jenis_kelamin);
-            $('#modalProfil').modal('show');
-              //alert(data.nama_toko);
-          },
-          error: function (jqXHR, textStatus, errorThrown)
-          {
-              alert('Jaringan eror');
-          }
-        });
-          
-      }
-
-      function simpan()
-      {
-          $.ajax({
-              url : url,
-              type: "POST",
-              data: $('#form').serialize(),
-              dataType: "JSON",
-              success: function(data)
-              {
-                $('[name="nama"]').html(data.nama);
-                $('[name="email"]').html(data.email);
-                $('[name="telephon"]').html(data.telephone);
-                $('[name="jenis kelamin"]').html(data.jenis_kelamin);
-                $('#modalProfil').modal('hide');
-              },
-              error: function (jqXHR, textStatus, errorThrown)
-              {
-                  alert('eror');
-              }
-              });
-      }
-  </script>
 
   <!-- Modal -->
   <div class="modal fade" id="modalProfil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -295,45 +251,38 @@
 			  </div>
 			
 			  <div class="modal-body" id="isiModal">
-				
-          <form id="form">
+          <form method="post" action="<?= site_url('option/edit_profil_submit') ?>">
             <div class="form-group">
               <label for="nama" class="col-form-label">Nama</label>
-              <input type="text" class="form-control " name="nama" >
+              <input type="text" class="form-control " id="nama" name="nama" value="<?= $akun['nama'] ?>">
                 <div class="invalid-feedback"></div>
             </div>
             
             <div class="form-group">
               <label for="email" class="col-form-label">Email</label>
-              <input type="text" class="form-control " name="email" >
+              <input type="text" class="form-control " id="email" name="email" value="<?= $akun['email'] ?>">
                 <div class="invalid-feedback"></div>
             </div>
             
             <div class="form-group">
               <label for="telephon" class="col-form-label">No Telp</label>
-              <input type="number" class="form-control " name="telephon" >
+              <input type="number" class="form-control " id="telephone" name="telephone" value="<?= $akun['telephone'] ?>">
                 <div class="invalid-feedback"></div>
             </div>
             
             <div class="form-group">
               <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin</label>
-              <select class="form-control" name="jenis_kelamin" >
+              <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" value="<?= $akun['jenis_kelamin'] ?>">
                 <option value="pria">Pria</option>
                 <option value="wanita">Wanita</option>
               </select>
             </div>
-
-            <div class="form-group">
-              <label for="foto" class="col-form-label">Foto Profil</label>
-              <input type="file" class="form-control-file " name="foto" >
-                <div class="invalid-feedback"></div>
-            </div>
+            <input type="submit" class="btn btn-success" value="Submit">
           </form>
 				
 			  </div>
 			
 			  <div class="modal-footer">
-          <button type="button" class="btn btn-success" OnClick="simpan()">Simpan</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
 				</div>
 			</div>
