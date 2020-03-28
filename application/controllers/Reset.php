@@ -59,7 +59,7 @@ class Reset extends CI_Controller {
             		'protocol' 	=> 'smtp',
             		'smtp_host' => 'ssl://smtp.googlemail.com',
             		'smtp_user' => 'srayakarina@gmail.com',
-            		'smtp_pass' => '24maret2014',
+            		'smtp_pass' => '',
             		'smtp_port'  => 465,
             		'mailtype' 	=> 'html',
             		'charset' 	  => 'utf-8',
